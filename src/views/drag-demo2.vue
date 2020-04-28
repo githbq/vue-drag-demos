@@ -4,7 +4,7 @@
     <left-panel v-model="templateList" />
     <fin-main class="drag-demo2-main">
       <div>
-        <fin-button type="primary" @click="headleSubmit">确定</fin-button>
+        <fin-button type="primary" @click="submit">确定</fin-button>
       </div>
       <fin-form class="fin-form-wrapper" label-width="80px">
         <draggable class="draggable-wrapper" :list="formList" group="people">
@@ -44,7 +44,7 @@ export default {
     };
   },
   methods: {
-    headleSubmit() {
+    submit() {
       console.log(this.formList);
     },
   },

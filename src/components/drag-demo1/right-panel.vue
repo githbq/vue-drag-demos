@@ -1,7 +1,10 @@
 <template>
-  <fin-drag @drop="drop" v-model="value">
+  <fin-drag class="drag-demo1-main-content"
+            @drop="drop"
+            v-model="value">
     <template v-slot="props">
-      <component :is="props.data.componentType" v-model="props.data"/>
+      <component :is="props.data.componentType"
+                 v-model="props.data" />
     </template>
   </fin-drag>
 </template>
