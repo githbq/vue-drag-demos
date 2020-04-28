@@ -9,9 +9,6 @@ import {
   Form,
   FormItem,
 } from 'element-ui';
-import draggable from 'vuedraggable';
-
-Vue.component('draggable', draggable);
 
 Vue.component('finButton', Button);
 Vue.component('finContainer', Container);

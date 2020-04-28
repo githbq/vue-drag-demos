@@ -7,7 +7,7 @@
       :draggable="true"
       @dragstart="dragstart($event, item)"
     >
-      {{item.label}}
+      {{item.name}}
     </div>
   </fin-aside>
 </template>

@@ -3,8 +3,8 @@
             @drop="drop"
             v-model="value">
     <template v-slot="props">
-      <component :is="props.data.componentType"
-                 v-model="props.data" />
+      <component :is="'fin-'+props.data.type"
+                 v-model="props.data.data" />
     </template>
   </fin-drag>
 </template>

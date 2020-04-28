@@ -1,16 +1,12 @@
 <template>
   <fin-aside class="aside-wrapper">
-    <draggable
-      :list="value"
-      :group="{ name: 'people', pull: 'clone', put: false }"
-      :clone="cloneDog"
-      :sort="false"
-    >
-      <div
-        v-for="(item, index) in value"
-        :key="index"
-        class="left-panel-item"
-      >
+    <draggable :list="value"
+               :group="{ name: 'default', pull: 'clone', put: false }"
+               :clone="clone"
+               :sort="false">
+      <div class="left-panel-item"
+           v-for="(item,index) in value"
+           :key="index">
         {{item.name}}
       </div>
     </draggable>
@@ -18,19 +14,25 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable';
 
 export default {
+  components: { draggable },
   props: {
+    groupName: {
+      type: String,
+      default: 'default',
+    },
     value: {
       type: Array,
       required: true,
     },
   },
   methods: {
-    cloneDog(item) {
+    clone(item) {
       return {
         ...item,
-        id: `${item.id}_${new Date().getTime()}`,
+        id: `${item.name}_${new Date().getTime()}`,
       };
     },
   },
@@ -38,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-.aside-wrapper >>> .left-panel-item {
+.aside-wrapper .left-panel-item {
   width: 180px;
   height: 40px;
   border: solid 1px #ccc;
