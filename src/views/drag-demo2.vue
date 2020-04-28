@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.formList);
+      // console.log(this.formList);
     },
   },
 };

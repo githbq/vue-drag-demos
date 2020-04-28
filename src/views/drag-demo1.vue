@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     submit() {
-      alert(JSON.stringify(this.dragData));
+      // alert(JSON.stringify(this.dragData));
     },
   },
 };
