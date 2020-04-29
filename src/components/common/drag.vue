@@ -1,45 +1,38 @@
 <template>
-  <div
-    ref="drggable"
-    class="drggable-resizable-container"
-    @drop="drop"
-    @dragover="dragover"
-  >
-    <slot name="header" :activeIndex="activeIndex" />
+  <div ref="drggable"
+       class="drggable-resizable-container"
+       @drop="drop"
+       @dragover="dragover">
+    <slot name="header"
+          :activeIndex="activeIndex" />
     <div class="drggable-resizable-wrapper">
-      <vue-draggable-resizable
-        v-for="(item, index) in value"
-        :style="{ zIndex: item.zIndex }"
-        :key="index"
-        :w="item.w"
-        :h="item.h"
-        :x="item.x"
-        :y="item.y"
-        :parent="true"
-        :debug="false"
-        :snap="true"
-        :snapTolerance="10"
-        @resizing="setDragData(item, ...arguments)"
-        @dragging="setDragData(item, ...arguments)"
-        @refLineParams="getRefLineParams"
-        @activated="activeIndex = index"
-      >
+      <vue-draggable-resizable v-for="(item, index) in value"
+                               :z="item.zIndex"
+                               :key="index"
+                               :w="item.w"
+                               :h="item.h"
+                               :x="item.x"
+                               :y="item.y"
+                               :parent="true"
+                               :debug="false"
+                               :snap="true"
+                               :snapTolerance="10"
+                               @resizing="setDragData(item, ...arguments)"
+                               @dragging="setDragData(item, ...arguments)"
+                               @refLineParams="getRefLineParams"
+                               @activated="activeIndex = index">
         <slot :data="item" />
       </vue-draggable-resizable>
-      <span
-        class="ref-line v-line"
-        v-for="(item, index) in vLine"
-        :key="`${index}v`"
-        v-show="item.display"
-        :style="{ left: item.position, top: item.origin, height: item.lineLength }"
-      />
-      <span
-        class="ref-line h-line"
-        v-for="(item, index) in hLine"
-        :key="`${index}h`"
-        v-show="item.display"
-        :style="{ top: item.position, left: item.origin, width: item.lineLength }"
-      />
+      <span class="ref-line v-line"
+            v-for="(item, index) in vLine"
+            :key="`${index}v`"
+            v-show="item.display"
+            :style="{ left: item.position, top: item.origin, height: item.lineLength }" />
+      <span class="ref-line h-line"
+            v-for="(item, index) in hLine"
+            :key="`${index}h`"
+            v-show="item.display"
+            :style="{ top: item.position, left: item.origin, width: item.lineLength }" />
     </div>
   </div>
 </template>
