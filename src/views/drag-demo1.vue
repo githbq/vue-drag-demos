@@ -2,11 +2,7 @@
 <template>
   <fin-container>
     <left-panel v-model="templateList" />
-    <fin-main class="drag-demo1-main">
-      <div>
-        <fin-button type="primary"
-                    @click="submit">确定</fin-button>
-      </div>
+    <fin-main>
       <right-panel v-model="dragData" />
     </fin-main>
   </fin-container>
@@ -30,19 +26,9 @@ export default {
     };
   },
   methods: {
-    submit() {
-      // alert(JSON.stringify(this.dragData));
-    },
+    // submit() {
+    //   alert(JSON.stringify(this.dragData));
+    // },
   },
 };
 </script>
-
-<style scoped lang="less">
-.drag-demo1-main {
-  display: flex;
-  flex-direction: column;
-}
-.drag-demo1-main-content {
-  flex: 1;
-}
-</style>
