@@ -20,6 +20,7 @@
                                @resizing="setDragData(item, ...arguments)"
                                @dragging="setDragData(item, ...arguments)"
                                @refLineParams="getRefLineParams"
+                               @deactivated="activeIndex = null"
                                @activated="activeIndex = index">
         <slot :data="item" />
       </vue-draggable-resizable>
