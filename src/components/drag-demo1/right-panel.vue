@@ -4,11 +4,12 @@
             @drop="drop"
             v-model="value">
     <template v-slot:header="{ isActived }">
-      <div ref="btnWrap">
+      <div class="drag-content-btnwrap" ref="btnWrap">
         <fin-button
           :disabled="!isActived"
           class="vdr-trmbl-button"
           type="primary"
+          size="small"
           @click="setDomPosition('push')"
         >
           置顶
@@ -17,18 +18,21 @@
           :disabled="!isActived"
           class="vdr-trmbl-button"
           type="primary"
+          size="small"
           @click="setDomPosition('unshift')"
         >置底</fin-button>
         <fin-button
           :disabled="!isActived"
           class="vdr-trmbl-button"
           type="primary"
+          size="small"
           @click="setLevel(1)"
         >上移一级</fin-button>
         <fin-button
           :disabled="!isActived"
           class="vdr-trmbl-button"
           type="primary"
+          size="small"
           @click="setLevel(-1)"
         >下移一级</fin-button>
       </div>
@@ -149,5 +153,8 @@ export default {
 <style scoped lang="less">
 .drag-demo1-main-content {
   height: 100%;
+}
+.drag-content-btnwrap {
+  margin-bottom: 20px;
 }
 </style>

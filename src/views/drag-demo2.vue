@@ -3,10 +3,10 @@
   <fin-container>
     <left-panel v-model="templateList" />
     <fin-main class="drag-demo2-main">
-      <div>
-        <fin-button type="primary" @click="submit">确定</fin-button>
+      <div style="margin-bottom: 20px">
+        <fin-button type="primary" size="small" @click="submit">确定</fin-button>
       </div>
-     <right-panel v-model="dragData"/>
+      <right-panel v-model="dragData"/>
     </fin-main>
   </fin-container>
 </template>
@@ -37,18 +37,8 @@ export default {
 </script>
 
 <style scoped lang="less">
-.fin-form-wrapper {
-  margin-top: 20px;
-}
-.fin-form-wrapper, .draggable-wrapper {
-  height: 100%;
-}
-.draggable-wrapper-item {
-  border: solid 1px #eee;
-  margin-bottom: 10px;
-  padding: 10px;
-  > h1 {
-    margin-bottom: 10px;
-  }
+.drag-demo2-main {
+  display: flex;
+  flex-direction: column;
 }
 </style>

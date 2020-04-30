@@ -6,9 +6,14 @@
     <slot name="header"
           :isActived="activeIndex !== null"
           :activeIndex="activeIndex" />
-    <div ref="drggableResizableWrapper" class="drggable-resizable-wrapper">
+    <div
+      ref="drggableResizableWrapper"
+      class="drggable-resizable-wrapper"
+    >
+      <div class="empty-wrapper" v-if="!value.length">
+        <slot name='empty'>从左侧拖拽来添加元素</slot>
+      </div>
       <vue-draggable-resizable v-for="(item, index) in value"
-                               style="background: red"
                                ref="drggableResizable"
                                :index="index"
                                :id="item.id"
@@ -97,7 +102,7 @@ export default {
       this.$emit('drop', {
         ...data,
         x: offsetX - data.w / 2,
-        y: offsetY - data.h / 2,
+        y: offsetY - data.h,
       });
     },
     getActiveInfo() {
@@ -134,6 +139,13 @@ export default {
 .drggable-resizable-wrapper {
   flex: 1;
   position: relative;
-  border: solid 1px #eee;
+  border: dashed 1px #eee;
+}
+.empty-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
 }
 </style>

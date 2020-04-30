@@ -1,5 +1,5 @@
 <template>
-  <span>{{value.value}}</span>
+  <div class="block-comp">{{value.value}}</div>
 </template>
 <script>
 export default {
@@ -10,3 +10,10 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="less">
+.block-comp {
+  height: 100%;
+  background: #eee;
+}
+</style>

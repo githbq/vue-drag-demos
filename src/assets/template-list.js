@@ -3,10 +3,10 @@ export default [
     name: '文本',
     type: 'text',
     // zIndex: 10,
-    w: 100,
-    h: 40,
+    w: 130,
+    h: 30,
     data: {
-      value: 'abc',
+      value: '文本',
     },
   },
   {
@@ -24,7 +24,7 @@ export default [
     type: 'input',
     // zIndex: 10,
     w: 200,
-    h: 50,
+    h: 40,
     data: {
       value: 'abc',
     },

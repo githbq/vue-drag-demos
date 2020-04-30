@@ -7,7 +7,8 @@
       :draggable="true"
       @dragstart="dragstart($event, item)"
     >
-      {{item.name}}
+      <i :class="iconType[item.type]"></i>
+      <span>{{item.name}}</span>
     </div>
   </fin-aside>
 </template>
@@ -20,6 +21,16 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      iconType: {
+        text: 'el-icon-tickets',
+        image: 'el-icon-picture-outline',
+        input: 'el-icon-edit',
+        block: 'el-icon-takeaway-box',
+      },
+    };
+  },
   methods: {
     dragstart(event, item) {
       event.dataTransfer.setData('Object', JSON.stringify(item));
@@ -28,13 +39,23 @@ export default {
 };
 </script>
 
-<style scoped>
-.aside-wrapper >>> .left-panel-item {
+<style lang="less" scoped>
+.aside-wrapper .left-panel-item {
+  box-sizing: border-box;
   width: 180px;
   height: 40px;
-  border: solid 1px #ccc;
-  text-align: center;
   line-height: 40px;
   margin: 20px auto 0;
+  padding-left: 20px;
+  font-size: 14px;
+  cursor: move;
+  background: #f4f6fc;
+  span {
+    padding-left: 8px;
+  }
+  &:hover {
+    color: #409eff;
+    border: dashed 1px #409eff;
+  }
 }
 </style>

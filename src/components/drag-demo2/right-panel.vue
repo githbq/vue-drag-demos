@@ -1,5 +1,6 @@
 <template>
-  <draggable class="right-panel" :list="value"
+  <draggable class="right-panel"
+             :list="value"
              group="default">
     <section class="draggable-wrapper-item"
              v-for="item in value"
@@ -28,7 +29,26 @@ export default {
 
 <style lang="less">
 .right-panel{
+  box-sizing: border-box;
   flex:1;
-  height:100%;
+  height: 100%;
+  overflow-y: auto;
+  border: dashed 1px #eee;
+  padding: 20px;
+}
+.draggable-wrapper-item {
+  border: solid 1px #eee;
+  margin-bottom: 10px;
+  padding: 10px;
+  > h1 {
+    margin-bottom: 10px;
+  }
+}
+.empty-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
 }
 </style>

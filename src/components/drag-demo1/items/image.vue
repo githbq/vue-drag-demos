@@ -1,8 +1,7 @@
 <template>
- <img style="width: 100%"
-      src="../../../assets/logo.png"
-      :alt="value.alt"
-  >
+ <div class="image-comp">
+   <i class="el-icon-picture"></i>
+ </div>
 </template>
 <script>
 export default {
@@ -13,3 +12,15 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="less">
+.image-comp {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  color: #666;
+  font-size: 36px;
+}
+</style>

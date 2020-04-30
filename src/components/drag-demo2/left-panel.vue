@@ -39,13 +39,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .aside-wrapper .left-panel-item {
+  box-sizing: border-box;
   width: 180px;
   height: 40px;
-  border: solid 1px #ccc;
-  text-align: center;
   line-height: 40px;
   margin: 20px auto 0;
+  padding-left: 20px;
+  font-size: 14px;
+  cursor: move;
+  background: #f4f6fc;
+  &:hover {
+    color: #409eff;
+    border: dashed 1px #409eff;
+  }
 }
 </style>
