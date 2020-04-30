@@ -11,6 +11,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "element-ui": "^2.13.1",
+    "superquad": "^1.2.2",
     "vue": "^2.6.11",
     "vue-draggable-resizable-gorkys": "^2.3.6",
     "vue-router": "^3.1.6",
