@@ -4,11 +4,15 @@
        @drop="drop"
        @dragover="dragover">
     <slot name="header"
+          :isActived="activeIndex !== null"
           :activeIndex="activeIndex" />
-    <div class="drggable-resizable-wrapper">
+    <div ref="drggableResizableWrapper" class="drggable-resizable-wrapper">
       <vue-draggable-resizable v-for="(item, index) in value"
-                               :z="item.zIndex"
-                               :key="index"
+                               style="background: red"
+                               ref="drggableResizable"
+                               :index="index"
+                               :id="item.id"
+                               :key="item.id"
                                :w="item.w"
                                :h="item.h"
                                :x="item.x"
@@ -96,8 +100,27 @@ export default {
         y: offsetY - data.h / 2,
       });
     },
-    clearActiveIndex() {
-      this.activeIndex = null;
+    getActiveInfo() {
+      // 获取激活元素下标，保证了下标的正确性
+      const { drggableResizable } = this.$refs;
+      const activeInfo = {};
+      for (let i = 0; i < drggableResizable.length; i += 1) {
+        const { enabled, $attrs } = drggableResizable[i];
+        if (enabled) {
+          const { index, id } = $attrs;
+          activeInfo.index = index;
+          activeInfo.id = id;
+          break;
+        }
+      }
+      return activeInfo;
+    },
+    getDrggableContentWidthHeight() {
+      const { drggableResizableWrapper } = this.$refs;
+      return {
+        width: drggableResizableWrapper.clientWidth,
+        height: drggableResizableWrapper.clientHeight,
+      };
     },
   },
 };
