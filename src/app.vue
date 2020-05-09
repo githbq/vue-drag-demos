@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/drag-demo1">drag-demo1</router-link> |
       <router-link to="/drag-demo2">drag-demo2</router-link> |
+      <router-link to="/code-mirror">code-mirror</router-link> |
     </fin-header>
     <router-view />
   </fin-container>
