@@ -34,6 +34,14 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "drag-demo2" */ '../views/code-mirror.vue'),
   },
+  {
+    path: '/code-mirror-http-load',
+    name: 'code-mirror-http-load',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "code-mirror-http-load" */ '../views/code-mirror-http-load.vue'),
+  },
 ];
 
 const router = new VueRouter({

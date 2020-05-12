@@ -8,13 +8,16 @@
                   @focus="onCmFocus"
                   @blur="onCmBlur" />
     </div>
-    <pre class="pre">{{ code }}</pre>
+    <div style="border:2px solid red;width:100%;">
+      <component :is="componentName" />
+    </div>
   </div>
 </template>
 
 <script>
 import dedent from 'dedent';
 import { codemirror } from 'vue-codemirror';
+import httpVueLoader from 'http-vue-loader';
 
 // base style
 import 'codemirror/lib/codemirror.css';
@@ -65,6 +68,7 @@ export default {
   },
   data() {
     return {
+      componentName: 'div',
       code: dedent(
         `
         <template>
@@ -72,6 +76,7 @@ export default {
 </template>
 
 <script>
+////////////////// code-mirror-http-load
  module.exports={
    data:function (){
      return {x:'hello word'}
@@ -119,6 +124,12 @@ export default {
       console.debug('onCmBlur', mirror);
     },
   },
+  async mounted() {
+    const componentName = 'Aaaaaa';
+    // 如果接口http://localhost:8000/dist/xxx能返回vue模板内容则可渲染
+    this.$options.components[componentName] = await httpVueLoader('http://localhost:8000/dist/xxx');
+    this.componentName = componentName;
+  },
 };
 </script>
 
@@ -126,7 +137,8 @@ export default {
 .example {
   display: flex;
   height: 100%;
-  .vue-codemirror,.CodeMirror {
+  .vue-codemirror,
+  .CodeMirror {
     height: 100%;
   }
   .codemirror,
